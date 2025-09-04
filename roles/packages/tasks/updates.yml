@@ -1,0 +1,29 @@
+---
+- name: Update packages (RedHat)
+  become: true
+  when: ansible_os_family == "RedHat"
+  block:
+    - name: Update package cache (RedHat)
+      ansible.builtin.dnf:
+        update_cache: true
+
+    - name: Upgrade all packages (RedHat)
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+
+- name: Update packages (Debian)
+  become: true
+  when: ansible_os_family == "Debian"
+  block:
+    - name: Update package cache (Debian)
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+        allow_unauthenticated: false
+        force_apt_get: true
+      ignore_errors: true
+
+    - name: Upgrade all packages (Debian)
+      ansible.builtin.apt:
+        upgrade: true

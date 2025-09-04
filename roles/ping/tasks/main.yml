@@ -1,0 +1,13 @@
+---
+- name: Ping site
+  shell: |
+    if [[ "$(uname)" == "Darwin" ]]; then
+      ping -c 1 -t 2 {{ ping_url }}
+    else
+      ping -c 1 -w 2 {{ ping_url }}
+    fi
+  register: ping_result
+
+- name: Ping result
+  debug:
+    msg: "{{ ping_result.stdout_lines }}"
