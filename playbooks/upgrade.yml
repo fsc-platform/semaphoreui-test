@@ -3,9 +3,13 @@
   hosts: all
   gather_facts: false
   tasks:
+    - name: Print host vars
+      ansible.builtin.debug:
+        msg: "Host vars: {{ hostvars[inventory_hostname] }}"
+
     - name: Print group vars
       ansible.builtin.debug:
-        msg: "Group vars: {{ group_vars }}"
+        msg: "Group vars: {{ hostvars[inventory_hostname].group_names }}"
 
     - name: Print ansible facts
       ansible.builtin.debug:
