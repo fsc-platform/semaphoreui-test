@@ -1,0 +1,37 @@
+---
+- name: "Group Solana Validators by Validator ID"
+  hosts: all
+  gather_facts: true
+  # TODO: We would need to group by validator id (staked pubkey) if we ever run multiple validators
+  # we could do that with a vars_prompt and checking the local facts for the validator id
+  vars_prompt:
+    - name: "validator_id"
+      prompt: "Enter the validator id to transition to active"
+      private: false
+      default: "ACTGYsH7bHbaSP7z9N86oLPHBThAELbGfTboc1VoFeZz"
+
+  tasks:
+    - name: Group by validator id
+      ansible.builtin.group_by:
+        key: "{{ 'targeted' if ansible_local.solana.staked_public_key == validator_id else 'untargeted' }}_validators"
+
+- name: "Group Active and Standby Solana Validators"
+  hosts: targeted_validators
+  gather_facts: false
+
+  tasks:
+    - name: Create groups based on validator status
+      ansible.builtin.group_by:
+        key: "{{ 'active' if ansible_local.solana.active else 'standby' }}_validators"
+      delegate_to: localhost
+
+    - name: Log out the available standby validators
+      ansible.builtin.debug:
+        msg: |
+          Available standby validators
+          =============================
+
+          {% for host in groups['standby_validators'] %}
+          {{ loop.index }}. {{ host }}
+          {% endfor %}
+      run_once: true # Only need to create this list once
