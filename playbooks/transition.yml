@@ -23,31 +23,31 @@
       ansible.builtin.debug:
         msg: "Validator ID: {{ validator_id }}"
 
-# - name: Print targeted validators
-#   hosts: targeted_validators
-#   gather_facts: false
-#   tasks:
-#     - name: Print targeted validators
-#       ansible.builtin.debug:
-#         msg: "Targeted validators: {{ groups['targeted_validators'] }}"
+- name: Print targeted validators
+  hosts: targeted_validators
+  gather_facts: false
+  tasks:
+    - name: Print targeted validators
+      ansible.builtin.debug:
+        msg: "Targeted validators: {{ groups['targeted_validators'] }}"
 
-# - name: "Group Active and Standby Solana Validators"
-#   hosts: targeted_validators
-#   gather_facts: false
+- name: "Group Active and Standby Solana Validators"
+  hosts: targeted_validators
+  gather_facts: false
 
-#   tasks:
-#     - name: Create groups based on validator status
-#       ansible.builtin.group_by:
-#         key: "{{ 'active' if ansible_local.solana.active else 'standby' }}_validators"
-#       delegate_to: localhost
+  tasks:
+    - name: Create groups based on validator status
+      ansible.builtin.group_by:
+        key: "{{ 'active' if ansible_local.solana.active else 'standby' }}_validators"
+      delegate_to: localhost
 
-#     - name: Log out the available standby validators
-#       ansible.builtin.debug:
-#         msg: |
-#           Available standby validators
-#           =============================
+    - name: Log out the available standby validators
+      ansible.builtin.debug:
+        msg: |
+          Available standby validators
+          =============================
 
-#           {% for host in groups['standby_validators'] %}
-#           {{ loop.index }}. {{ host }}
-#           {% endfor %}
-#       run_once: true # Only need to create this list once
+          {% for host in groups['standby_validators'] %}
+          {{ loop.index }}. {{ host }}
+          {% endfor %}
+      run_once: true # Only need to create this list once
