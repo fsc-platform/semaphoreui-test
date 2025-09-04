@@ -1,0 +1,16 @@
+---
+- name: Print vars
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Print group vars
+      ansible.builtin.debug:
+        msg: "Group vars: {{ group_vars }}"
+
+    - name: Print ansible facts
+      ansible.builtin.debug:
+        msg: "Ansible facts: {{ ansible_facts }}"
+
+    - name: Print ansible local
+      ansible.builtin.debug:
+        msg: "Ansible local: {{ ansible_local }}"

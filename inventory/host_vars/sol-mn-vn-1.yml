@@ -1,0 +1,8 @@
+---
+solana_validator_build_type: "jito"
+solana_jito_relayer_url: "http://amsterdam.mainnet.relayer.jito.wtf:8100"
+solana_jito_block_engine_url: "https://amsterdam.mainnet.block-engine.jito.wtf"
+solana_jito_shred_receiver_address: "74.118.140.240:1002"
+
+solana_ledger_path: "/mnt/ledger"
+solana_accounts_path: "/mnt/accounts"

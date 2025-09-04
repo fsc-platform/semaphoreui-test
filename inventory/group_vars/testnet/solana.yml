@@ -1,0 +1,43 @@
+---
+solana_firedancer_version: "0.707.20306"
+
+solana_network: testnet
+solana_cluster_url: "http://api.testnet.solana.com"
+solana_metrics_url: "https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
+
+solana_vault_path: "solana/{{ solana_network }}/private-keys"
+solana_vault_mount_point: blockchain-secrets
+
+solana_staked_identity_pubkey: "BybZ3pFsgtVy9ygkEi5F7FVD4bo6wFzqyr2y2rYX9dMv"
+solana_vote_identity_pubkey: "JBjd4d2QrjE9cXNL7NreaYkvDsnm9BSvpd5jMqPbNBoa"
+
+solana_known_validators:
+  - "5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on"
+  - "dDzy5SR3AXdYWVqbDEkVFdvSPCtS9ihF5kJkHCtXoFs"
+  - "Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN"
+  - "9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv"
+  - "eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ"
+  - "BFquPCAYdjN9QyLVfuGrQdJTF9Ct7Z85FDxhFeLcpFqR"
+  - "9e2RvEzemWs6ZkEhdW2NddSWiFKgJfkw5LWGtgwvPnvw"
+  - "GAPNvBD6MXboQmxP9XTCC4CMsT5gUpdFZWbnj4Tz2s7i"
+
+solana_entrypoints:
+  - "entrypoint.testnet.solana.com:8001"
+  - "entrypoint2.testnet.solana.com:8001"
+  - "entrypoint3.testnet.solana.com:8001"
+
+solana_expected_genesis_hash: "4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY"
+solana_expected_shred_version: 9065
+solana_expected_bank_hash: "4oMrSXsLTiCc1X7S27kxSfGVraTCZoZ7YTy2skEB9bPk"
+solana_supermajority: 343175553
+
+# Jito-specific configuration for testnet in ny
+solana_jito_block_engine_url: "https://ny.testnet.block-engine.jito.wtf"
+solana_jito_tip_payment_program_pubkey: "GJHtFqM9agxPmkeKjHny6qiRKrXZALvvFGiKf11QE7hy"
+solana_jito_tip_distribution_program_pubkey: "F2Zu7QZiTYUhPd7u9ukRVwxh7B71oA3NMJcHuCHc29P2"
+solana_jito_merkle_root_upload_authority: "GZctHpWXmsZC1YHACTGGcHhYxjdRqQvTpYkb9LMvxDib"
+solana_jito_commission_bps: 1000
+
+# used by agave+jito client
+solana_jito_relayer_url: "http://ny.testnet.relayer.jito.wtf:8100"
+solana_jito_shred_receiver_address: "141.98.216.132:1002"

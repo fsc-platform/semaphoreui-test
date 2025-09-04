@@ -1,0 +1,35 @@
+---
+solana_firedancer_version: "0.707.20306"
+
+solana_vault_path: "solana/{{ solana_network }}/private-keys"
+solana_vault_mount_point: blockchain-secrets
+
+solana_staked_identity_pubkey: "ACTGYsH7bHbaSP7z9N86oLPHBThAELbGfTboc1VoFeZz"
+solana_vote_identity_pubkey: "DMPhNJFSvi34NmfcqR4B5rdKgDYY3kZbXpdXJBL4cJ1q"
+
+solana_known_validators:
+  - "7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2"
+  - "GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ"
+  - "DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ"
+  - "CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S"
+
+solana_entrypoints:
+  - "entrypoint.mainnet-beta.solana.com:8001"
+  - "entrypoint2.mainnet-beta.solana.com:8001"
+  - "entrypoint3.mainnet-beta.solana.com:8001"
+  - "entrypoint4.mainnet-beta.solana.com:8001"
+  - "entrypoint5.mainnet-beta.solana.com:8001"
+
+solana_expected_genesis_hash: "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d"
+
+solana_jito_relayer_url: "http://ny.mainnet.relayer.jito.wtf:8100"
+
+solana_jito_block_engine_url: "https://ny.mainnet.block-engine.jito.wtf"
+
+solana_jito_shred_receiver_address: "141.98.216.96:1002"
+
+solana_jito_tip_payment_program_pubkey: "T1pyyaTNZsKv2WcRAB8oVnk93mLJw2XzjtVYqCsaHqt"
+
+solana_jito_tip_distribution_program_pubkey: "4R3gSG8BpU4t19KYj8CfnbtRpnT8gtk4dvTHxVRwc2r7"
+
+solana_jito_merkle_root_upload_authority: "GZctHpWXmsZC1YHACTGGcHhYxjdRqQvTpYkb9LMvxDib"

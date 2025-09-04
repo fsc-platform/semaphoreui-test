@@ -1,0 +1,18 @@
+---
+solana_unit: "firedancer"
+solana_ledger_path: "/mnt/ledger"
+solana_accounts_path: "/mnt/accounts"
+solana_firedancer_config_dir: "/etc/firedancer"
+solana_p2p_ports_start: "8020"
+solana_p2p_ports_end: "8040"
+solana_rpc_port: "9899"
+
+solana_snapshot_fetch: true
+
+solana_firedancer_tuned_config:
+  layout:
+    affinity: "0-15,17-31"
+    agave_affinity: "32-42,44-47,49-63"
+    verify_tile_count: 10
+  hugetlbfs:
+    mount_path: "/mnt/.fd"
