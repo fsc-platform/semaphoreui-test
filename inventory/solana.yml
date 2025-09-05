@@ -1,0 +1,30 @@
+all:
+  vars:
+    ansible_user: sol
+    ansible_connection: ssh
+
+  children:
+    mainnet:
+      hosts:
+        sol-mn-val-fl:
+          ansible_host: 140.82.30.22
+          solana_client: firedancer
+          ovh_enabled: false
+        sol-mn-val-nj:
+          ansible_host: 45.77.146.51
+          solana_client: firedancer
+          ovh_enabled: false
+        sol-mn-val-ny:
+          ansible_host: 185.209.178.211
+          solana_client: firedancer
+          ovh_enabled: false
+
+    testnet:
+      hosts:
+        sol-tn-val-ams:
+          ansible_host: 136.244.110.211
+          solana_client: firedancer
+          ovh_enabled: false
+        testbed-ca:
+          ansible_host: 15.204.46.137
+          solana_client: firedancer
