@@ -1,7 +1,4 @@
 ---
-solana_firedancer_version: "0.707.20306"
+solana_firedancer_version: "0.707.20306-testnet"
 
 solana_network: testnet
-
-solana_staked_identity_pubkey: "BybZ3pFsgtVy9ygkEi5F7FVD4bo6wFzqyr2y2rYX9dMv"
-solana_vote_identity_pubkey: "JBjd4d2QrjE9cXNL7NreaYkvDsnm9BSvpd5jMqPbNBoa"
