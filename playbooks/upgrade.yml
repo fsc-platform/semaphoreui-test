@@ -19,6 +19,10 @@
       ansible.builtin.debug:
         msg: "Ansible local: {{ ansible_local }}"
 
+- name: Print vault secrets
+  hosts: all
+  gather_facts: false
+  tasks:
     - name: Print vault secrets
       ansible.builtin.debug:
         msg:
