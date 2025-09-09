@@ -22,5 +22,5 @@
     - name: Print vault secrets
       ansible.builtin.debug:
         msg: |
-          Vault URL: {{ vault_url }}
-          Vault Token: {{ vault_token }}
+          Vault Validator: {{ solana_vault_secret.data.data.validator }}
+
