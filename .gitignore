@@ -1,0 +1,8 @@
+pgsql-data/
+semaphore-server/
+semaphore-runner01/
+charts.html
+docker-compose.yaml
+*copy*
+*bak*
+*test*
