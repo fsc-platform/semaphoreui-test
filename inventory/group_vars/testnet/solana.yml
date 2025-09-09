@@ -15,8 +15,6 @@ solana_vault_secret: >-
   {{ lookup(
       "community.hashi_vault.vault_kv2_get",
       auth_method="token",
-      auth_token=vault_token,
-      url=vault_url,
       path=solana_vault_path,
       engine_mount_point="blockchain-secrets",
       validate_certs=False
