@@ -20,7 +20,7 @@ solana_vault_secret: >-
   }}
 
 solana_staked_identity: >-
-  {{ solana_vault_secret.data.validator
+  {{ solana_vault_secret.validator
   if solana_vault_enabled
   else none
   }}
