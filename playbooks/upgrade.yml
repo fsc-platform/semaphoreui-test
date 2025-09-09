@@ -26,7 +26,7 @@
     - name: Print vault secrets
       ansible.builtin.debug:
         msg:
-          - "Secret: {{ solana_staked_identity.secret }}"
-          - "Data: {{ solana_staked_identity.data }}"
-          - "Metadata: {{ solana_staked_identity.metadata }}"
-          - "Full response: {{ solana_staked_identity.raw }}"
+          - "Secret: {{ solana_vault_secret.secret }}"
+          - "Data: {{ solana_vault_secret.data }}"
+          - "Metadata: {{ solana_vault_secret.metadata }}"
+          - "Full response: {{ solana_vault_secret.raw }}"
