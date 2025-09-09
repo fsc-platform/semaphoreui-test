@@ -14,7 +14,7 @@ solana_vault_secret: >-
       "community.hashi_vault.vault_kv2_get",
         auth_method="token",
         path=solana_vault_path,
-        engine_mount_point=solana_vault_mount_point,
+        namespace=solana_vault_mount_point,
         validate_certs=False
     ) if solana_vault_enabled else none
   }}
