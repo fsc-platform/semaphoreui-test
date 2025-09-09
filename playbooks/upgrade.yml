@@ -21,5 +21,4 @@
 
     - name: Print vault secrets
       ansible.builtin.debug:
-        msg: "Vault Validator: {{ solana_vault_secret.data.data.validator }}"
-
+        msg: "Vault Validator: {{ solana_staked_identity }}"
