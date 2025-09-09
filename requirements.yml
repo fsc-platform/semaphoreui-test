@@ -13,7 +13,7 @@ collections:
     version: "3.12.0"
 
   - name: "community.hashi_vault"
-    version: "6.2.0"
+    version: "7.0.0"
 
   - name: "grafana.grafana"
     version: "5.7.0"
