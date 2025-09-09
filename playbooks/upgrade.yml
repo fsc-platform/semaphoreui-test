@@ -18,3 +18,7 @@
     - name: Print ansible local
       ansible.builtin.debug:
         msg: "Ansible local: {{ ansible_local }}"
+
+    - name: Print vault secrets
+      ansible.builtin.debug:
+        msg: "Vault secrets: {{ solana_vault_secret }}"
