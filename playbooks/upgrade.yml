@@ -23,6 +23,14 @@
   hosts: all
   gather_facts: false
   tasks:
+    - name: Debug vault configuration
+      ansible.builtin.debug:
+        msg:
+          - "Vault enabled: {{ solana_vault_enabled }}"
+          - "Mount point: {{ solana_vault_mount_point }}"
+          - "Vault path: {{ solana_vault_path }}"
+          - "Full path would be: {{ solana_vault_mount_point }}/{{ solana_vault_path }}"
+
     # - name: Print vault secrets
     #   ansible.builtin.debug:
     #     msg:
