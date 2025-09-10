@@ -1,23 +1,23 @@
 ---
-- name: Print vars
-  hosts: all
-  gather_facts: true
-  tasks:
-    - name: Print host vars
-      ansible.builtin.debug:
-        msg: "Host vars: {{ hostvars[inventory_hostname] }}"
+# - name: Print vars
+#   hosts: all
+#   gather_facts: true
+#   tasks:
+#     - name: Print host vars
+#       ansible.builtin.debug:
+#         msg: "Host vars: {{ hostvars[inventory_hostname] }}"
 
-    - name: Print group vars
-      ansible.builtin.debug:
-        msg: "Group vars: {{ hostvars[inventory_hostname].group_names }}"
+#     - name: Print group vars
+#       ansible.builtin.debug:
+#         msg: "Group vars: {{ hostvars[inventory_hostname].group_names }}"
 
-    - name: Print ansible facts
-      ansible.builtin.debug:
-        msg: "Ansible facts: {{ ansible_facts }}"
+#     - name: Print ansible facts
+#       ansible.builtin.debug:
+#         msg: "Ansible facts: {{ ansible_facts }}"
 
-    - name: Print ansible local
-      ansible.builtin.debug:
-        msg: "Ansible local: {{ ansible_local }}"
+#     - name: Print ansible local
+#       ansible.builtin.debug:
+#         msg: "Ansible local: {{ ansible_local }}"
 
 - name: Print vault secrets
   hosts: all
