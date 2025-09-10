@@ -20,8 +20,8 @@ solana_vault_secret: >-
     ) if solana_vault_enabled else none
   }}
 
-# solana_staked_identity: >-
-#   {{ solana_vault_secret.data.validator
-#   if solana_vault_enabled
-#   else none
-#   }}
+solana_staked_identity: >-
+  {{ solana_vault_secret.data.validator
+  if solana_vault_enabled
+  else none
+  }}
