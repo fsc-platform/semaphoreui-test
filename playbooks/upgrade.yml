@@ -34,7 +34,7 @@
     - name: Print vault secrets
       ansible.builtin.debug:
         msg:
-          - "Secret: {{ solana_vault_secret }}"
+          - "Secret: {{ solana_vault_secret.data.data.validator }}"
           # - "Secret: {{ solana_vault_secret.secret }}"
           # - "Data: {{ solana_vault_secret.data }}"
           # - "Metadata: {{ solana_vault_secret.metadata }}"
