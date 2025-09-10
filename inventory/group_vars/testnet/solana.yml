@@ -12,23 +12,23 @@ solana_vault_path: "solana/{{ solana_network }}/private-keys"
 solana_vault_list: >-
   {{ lookup(
       "community.hashi_vault.vault_list",
-        solana_vault_path,
+        "metadata/" + solana_vault_path,
         mount_point=solana_vault_mount_point,
-        engine_mount_point=solana_vault_mount_point,
         auth_method="token",
-        validate_certs=False
+        validate_certs=False,
+        list=True
     ) if solana_vault_enabled else none
   }}
 
-solana_vault_secret: >-
-  {{ lookup(
-      "community.hashi_vault.vault_kv2_get",
-        solana_vault_path,
-        mount_point=solana_vault_mount_point,
-        auth_method="token",
-        validate_certs=False
-    ) if solana_vault_enabled else none
-  }}
+# solana_vault_secret: >-
+#   {{ lookup(
+#       "community.hashi_vault.vault_kv2_get",
+#         solana_vault_path,
+#         mount_point=solana_vault_mount_point,
+#         auth_method="token",
+#         validate_certs=False
+#     ) if solana_vault_enabled else none
+#   }}
 
 # solana_staked_identity: >-
 #   {{ solana_vault_secret.data.validator
