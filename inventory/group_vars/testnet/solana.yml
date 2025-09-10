@@ -14,6 +14,7 @@ solana_vault_list: >-
   {{ lookup(
       "community.hashi_vault.vault_list",
         solana_vault_path,
+        namespace=solana_vault_mount_point,
         auth_method="token",
         validate_certs=False
     ) if solana_vault_enabled else none
