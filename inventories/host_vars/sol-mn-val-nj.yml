@@ -1,0 +1,53 @@
+---
+node_tag: "{{ inventory_hostname }}"
+node_provider: edgevana
+node_build: BM-9254-384G-25G
+node_region: new-jersey
+node_price: 899
+
+solana_mount_path: "/mnt/solana"
+solana_log_path: "{{ solana_mount_path }}/logs/firedancer.log"
+solana_snapshot_fetch: false
+
+logrotate_paths:
+  solana:
+    path: "{{ solana_log_path | dirname }}"
+    delaycompress: false
+    owner: sol
+    group: sol
+
+solana_swap_file_path: "{{ solana_mount_path }}/swapfile"
+solana_swap_size_gb: 64
+
+solana_snapshot_path: "{{ solana_ledger_path }}/snapshots"
+
+solana_firedancer_tuned_config:
+  layout:
+    affinity: "0-25"
+    agave_affinity: "26-47"
+    agave_unified_scheduler_handler_threads: 12
+  net:
+    ingress_buffer_size: 8192
+    xdp:
+      xdp_rx_queue_size: 8192
+      xdp_tx_queue_size: 2048
+      flush_timeout_micros: 10
+  snapshots:
+    minimum_snapshot_download_speed: 20971520
+    path: "{{ solana_snapshot_path }}"
+    incremental_path: "{{ solana_snapshot_path }}"
+  hugetlbfs:
+    mount_path: "{{ solana_mount_path }}/.fd"
+  tiles:
+    quic:
+      max_concurrent_connections: 262144
+      txn_reassembly_count: 262144
+      max_concurrent_handshakes: 8192
+      ack_delay_millis: 25
+    verify:
+      signature_cache_size: 8388606
+      receive_buffer_size: 32768
+    shred:
+      max_pending_shred_sets: 1024
+    pack:
+      schedule_strategy: "perf"

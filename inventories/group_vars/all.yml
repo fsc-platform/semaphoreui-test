@@ -1,0 +1,77 @@
+---
+ansible_python_interpreter: /usr/bin/python3.12
+
+alloy_extra_labels:
+  team: blockchain-services
+
+alloy_vault_path: vendors/grafana/alloy
+
+alloy_vault_mount_point: infra-secrets
+
+alloy_metrics_name: fsc-grafana-cloud
+
+certbot_email: services@flipsidecrypto.com
+
+certbot_dns_credentials: |
+  dns_cloudflare_api_token = {{ cloudflare_api_token }}
+
+cloudflare_secret: >-
+  {{ lookup(
+      "community.hashi_vault.vault_kv2_get",
+      "vendors/cloudflare/dns/flipside.services",
+      mount_point="infra-secrets",
+      engine_mount_point="infra-secrets",
+      auth_method="token",
+      validate_certs=False
+    )
+  }}
+
+cloudflare_api_token: "{{ cloudflare_secret.data.data.token }}"
+
+cloudflare_default_zone: flipside.services
+
+cloudflare_default_record: "{{ inventory_hostname }}.metal"
+
+netbase_domain: "metal.flipside.services"
+
+netbase_extra_services:
+  - name: tailscale
+    services:
+      - name: tailscale-derp
+        port: 41641
+        proto: udp
+
+netplan_private_addresses: >-
+  {{ [ip + cidr | d('/24')] if ip is defined else [] }}
+
+node_user: flipside
+
+ufw_extra_rules:
+  - comment: "Allow Tailscale DERP traffic"
+    port: 41641
+    proto: udp
+    rule: allow
+
+sshguard_extra_whitelist:
+  - address: "100.64.0.0/10"
+    comment: "Tailscale CGNAT range"
+
+users_admin_secret: >-
+  {{ lookup(
+      "community.hashi_vault.vault_kv2_get",
+      "services/pam",
+      mount_point="infra-secrets",
+      engine_mount_point="infra-secrets",
+      auth_method="token",
+      validate_certs=False
+    )
+  }}
+
+users_admin_password: "{{ users_admin_secret.data.data.password }}"
+
+users_admin_authorized_keys:
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6NNR7R+00jzDUK2w30pOsYLfHJ77sw7hgEOSEwj3l+ services@flipsidecrypto.com
+
+ovh_vault_path: vendors/ovhcloud/ansible
+
+ovh_vault_mount_point: infra-secrets

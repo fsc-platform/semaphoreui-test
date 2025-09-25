@@ -1,0 +1,10 @@
+---
+solana_mount_path: "/mnt/solana"
+solana_log_path: "{{ solana_mount_path }}/logs/firedancer.log"
+
+logrotate_paths:
+  solana:
+    path: "{{ solana_mount_path }}/logs"
+    delaycompress: false
+    owner: sol
+    group: sol
