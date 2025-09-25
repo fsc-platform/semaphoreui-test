@@ -1,0 +1,5 @@
+---
+- name: Get hostname of all hosts
+  hosts: all
+  roles:
+    - role: hostname

@@ -1,0 +1,9 @@
+---
+- name: Get hostname
+  shell: |
+    hostname
+  register: hostname_result
+
+- name: Hostname result
+  debug:
+    msg: "{{ hostname_result.stdout_lines }}"
