@@ -2,5 +2,12 @@
 - name: Debug testing role
   debug:
     msg: |
-      {{ ANSIBLE_HASHI_VAULT_ADDR }}
-      {{ ANSIBLE_HASHI_VAULT_TOKEN }}
+      VAULT_ADDR: {{ ansible_env.ANSIBLE_HASHI_VAULT_ADDR }}
+      VAULT_TOKEN: {{ ansible_env.ANSIBLE_HASHI_VAULT_TOKEN }}
+
+- name: Print environment variables
+  debug:
+    msg: |
+      HOME: {{ ansible_env.HOME }}
+      PATH: {{ ansible_env.PATH }}
+      USER: {{ ansible_env.USER }}
