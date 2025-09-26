@@ -1,26 +1,26 @@
 ---
 
-solana_network: testnet
+network: testnet
+vault_enabled: "{{ vault_path is not none }}"
+vault_mount_point: "kv"
+vault_namespace: "eng/blockchain"
+vault_path: "validators/solana/{{ network }}/validator"
+vault_full_path: "{{ vault_mount_point }}/{{ vault_path }}"
 
-solana_vault_enabled: "{{ solana_vault_path is not none }}"
-solana_vault_mount_point: "kv"
-solana_vault_engine_mount_point: "kv"
-solana_vault_namespace: "eng/blockchain/"
-solana_vault_path: "validators/solana/{{ solana_network }}/validator"
-
-solana_vault_secret: >-
+vault_secret: >-
   {{ lookup(
       "community.hashi_vault.vault_kv2_get",
-      solana_vault_path,
-      mount_point=solana_vault_mount_point,
-      engine_mount_point=solana_vault_mount_point,
+      vault_path,
+      mount_point=vault_mount_point,
+      engine_mount_point=vault_mount_point,
+      namespace=vault_namespace,
       auth_method="token",
       validate_certs=False
-    ) if solana_vault_enabled else none
+    ) if vault_enabled else none
   }}
 
-solana_staked_identity: >-
-  {{ solana_vault_secret.data.data.validator
-  if solana_vault_enabled
+staked_identity: >-
+  {{ vault_secret.data.data['identity.json']
+  if vault_enabled
   else none
   }}
