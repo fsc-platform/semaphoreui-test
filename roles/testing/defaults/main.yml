@@ -12,7 +12,7 @@ solana_vault_full_path: "{{ solana_vault_namespace }}/{{ solana_vault_path }}"
 solana_vault_secret: >-
   {{ lookup(
       "community.hashi_vault.vault_kv2_get",
-      solana_vault_full_path,
+      solana_vault_path,
       auth_method="token",
       validate_certs=False
     ) if solana_vault_enabled else none
