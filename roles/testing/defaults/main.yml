@@ -3,10 +3,10 @@
 solana_network: testnet
 
 solana_vault_enabled: "{{ solana_vault_path is not none }}"
-solana_vault_path: "validators/solana/{{ solana_network }}/validator"
-solana_vault_namespace: "eng/blockchain/"
 solana_vault_mount_point: "kv"
-solana_vault_full_path: "{{ solana_vault_namespace }}/{{ solana_vault_path }}"
+solana_vault_engine_mount_point: "kv"
+solana_vault_namespace: "eng/blockchain/"
+solana_vault_path: "validators/solana/{{ solana_network }}/validator"
 
 solana_vault_secret: >-
   {{ lookup(
