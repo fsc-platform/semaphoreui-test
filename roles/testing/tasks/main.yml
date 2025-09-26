@@ -5,9 +5,16 @@
       VAULT_ADDR: {{ ansible_env.ANSIBLE_HASHI_VAULT_ADDR }}
       VAULT_TOKEN: {{ ansible_env.ANSIBLE_HASHI_VAULT_TOKEN }}
 
-- name: Print environment variables
-  debug:
-    msg: |
-      HOME: {{ ansible_env.HOME }}
-      PATH: {{ ansible_env.PATH }}
-      USER: {{ ansible_env.USER }}
+- name: Debug vault configuration
+  ansible.builtin.debug:
+    msg:
+      - "Vault enabled: {{ solana_vault_enabled }}"
+      - "Mount point: {{ solana_vault_mount_point }}"
+      - "Namespace: {{ solana_vault_namespace }}"
+      - "Vault path: {{ solana_vault_path }}"
+      - "Full path would be: {{ solana_vault_mount_point }}/{{ solana_vault_path }}"
+
+- name: Print vault secrets
+  ansible.builtin.debug:
+    msg:
+      - "Secret: {{ solana_vault_secret.data.data.validator }}"
