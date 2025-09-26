@@ -1,0 +1,6 @@
+---
+- name: Debug
+  hosts: localhost
+  connection: local
+  roles:
+    - role: testing

@@ -1,0 +1,6 @@
+---
+- name: Debug testing role
+  debug:
+    msg: |
+      {{ ANSIBLE_HASHI_VAULT_ADDR }}
+      {{ ANSIBLE_HASHI_VAULT_TOKEN }}
