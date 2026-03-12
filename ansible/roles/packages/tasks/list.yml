@@ -1,0 +1,9 @@
+---
+- name: Gather installed package facts
+  become: true
+  ansible.builtin.package_facts:
+    manager: auto
+
+- name: Show installed packages
+  ansible.builtin.debug:
+    var: ansible_facts.packages

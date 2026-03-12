@@ -1,6 +1,5 @@
 ---
 - name: Get hostname of all hosts
-  hosts: localhost
-  connection: local
+  hosts: all
   roles:
     - role: hostname

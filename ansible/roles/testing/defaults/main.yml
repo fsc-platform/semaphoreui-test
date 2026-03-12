@@ -5,7 +5,6 @@ vault_enabled: "{{ vault_path is not none }}"
 vault_mount_point: "kv"
 vault_namespace: "eng/blockchain"
 vault_path: "validators/solana/{{ network }}/validator"
-vault_full_path: "{{ vault_mount_point }}/{{ vault_path }}"
 
 vault_secret: >-
   {{ lookup(

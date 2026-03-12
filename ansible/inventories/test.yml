@@ -1,0 +1,12 @@
+---
+all:
+  vars:
+    ansible_user: sol
+    ansible_connection: ssh
+
+  children:
+    testnet:
+      hosts:
+        testbed-ca:
+          ansible_host: testbed-ca.tail46463.ts.net
+          solana_client: firedancer
