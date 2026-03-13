@@ -1,5 +1,8 @@
 ---
 pre_actions:
+  - name: git_config
+    description: Set the Git user.email and user.name
+    command: git config user.email "chain-manager@fsc-platform" && git config user.name "Chain Manager"
   - name: git_pull
     description: Ensure chain-ops repo is up to date before running upgrade
     command: git pull --ff-only
