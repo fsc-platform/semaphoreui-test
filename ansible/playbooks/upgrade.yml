@@ -1,0 +1,5 @@
+---
+- name: Upgrade role
+  hosts: all
+  roles:
+    - role: upgrade

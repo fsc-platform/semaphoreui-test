@@ -1,0 +1,5 @@
+---
+- name: Debug test blockchain version
+  ansible.builtin.debug:
+    msg:
+      - "Test Blockchain Version: {{ test_version }}"
