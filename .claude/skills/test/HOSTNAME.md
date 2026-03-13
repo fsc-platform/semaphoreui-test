@@ -1,7 +1,7 @@
 ---
 requires_approval: false
 pre_actions:
-  - use: upgrade
+  - use: hostname
 ---
 # Hostname
 

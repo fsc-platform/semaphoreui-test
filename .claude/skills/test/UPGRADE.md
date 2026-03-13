@@ -1,5 +1,5 @@
 ---
-requires_approval: false
+requires_approval: true
 pre_actions:
   - use: upgrade
 ---
