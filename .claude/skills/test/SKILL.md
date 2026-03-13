@@ -78,7 +78,7 @@ just play test.yml packages.yml -l <network> -u sol
 # Check service is running
 just cmd test.yml <network> "sudo systemctl status ssh"
 
-# Check that block height is increasing
+# Check that block height two or three times to make sure it's increasing
 just cmd test.yml <network> "curl http://localhost:8888"
 ```
 
