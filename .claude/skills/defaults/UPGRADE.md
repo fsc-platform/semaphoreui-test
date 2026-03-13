@@ -5,7 +5,7 @@ pre_actions:
     command: git pull --ff-only
     work_dir: /tmp/chain-manager
   - name: git_branch
-    command: git checkout -b "chore/upgrade_<blockchain>_<network>_<version>" main
+    command: 'git checkout -b "chore/upgrade_<blockchain>_<network>_<version>" main'
     work_dir: /tmp/chain-manager
   - name: just_init
     description: Ensure that we install any dependencies
@@ -13,10 +13,11 @@ pre_actions:
     work_dir: /tmp/chain-manager
 post_actions:
   - name: git_add
-    command: git add <files>
+    command: git add -A
     work_dir: /tmp/chain-manager
   - name: git_commit
-    command: git diff --cached --quiet || git commit -m "chore(<blockchain>): upgrade <blockchain> <network> to <version>"
+    command: 'git diff --cached --quiet || git commit -m "chore(<blockchain>): upgrade
+  <blockchain> <network> to <version>"'
     work_dir: /tmp/chain-manager
   - name: git_push
     command: git push -u origin HEAD
