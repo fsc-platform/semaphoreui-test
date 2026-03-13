@@ -1,3 +1,8 @@
+---
+requires_approval: false
+pre_actions:
+  - use: upgrade
+---
 # Upgrades
 
 Apply config changes or upgrade to a new version.

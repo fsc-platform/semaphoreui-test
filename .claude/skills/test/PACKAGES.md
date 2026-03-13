@@ -1,3 +1,8 @@
+---
+requires_approval: false
+pre_actions:
+  - use: upgrade
+---
 # Packages
 
 Apply package changes.
